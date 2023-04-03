@@ -1,1 +1,1 @@
-//adding a change to main
+const title = document.querySelector('h1')
