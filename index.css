@@ -2,18 +2,25 @@ body{
     text-align: center;
 }
 
-#movie-list-container{
-    display: flex;   
-} 
-
 #movie-list{
     list-style-type: none;
 }
 
-#movie-list li{
-    display: inline-block;
+#button {
+    display: block;
+    margin-top: 10px;
 }
 
-img {
-    max-width: 300px;
+img{
+    margin-bottom: 1rem;
+
+}
+
+form{
+    text-align: left;
+}
+
+form input{
+    display: block;
+    margin-bottom: 10px
 }

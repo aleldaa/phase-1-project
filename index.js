@@ -7,12 +7,12 @@ fetch("http://localhost:3000/data")
 .catch(err => console.log(err))
 
 let global
-const movieList = document.querySelector('#movie-list')
+const movieList = document.querySelector('#movie-list-container')
 
 const getMovies = (movies) => {
     for(let i = 0; i < 9; i++){
         let movieCard = document.createElement('li')
-        console.log(movieCard)
+        movieCard.classList.add('col-4')
         let url = movies.items[i].image
         let image = document.createElement('img')
         image.src = url
