@@ -17,3 +17,4 @@ By Sterling Barton, Luna Daniels and Angela Palaszewski
 
 ### Resources
 imDb API - https://imdb-api.com/en/API/Top250Movies/
+  - API Key hidden for security
