@@ -20,7 +20,12 @@ const getMovies = (movies) => {
         movieCard.append(image)
         movieList.append(movieCard)
         
-        
+        movieCard.addEventListener('mouseover', () => {
+                movieCard.style.transform = "scale(1.5)";
+             });
+        movieCard.addEventListener( 'mouseout', () => {
+                movieCard.style.transform = "scale(1)";
+             })
         movieCard.addEventListener('click', () => {
             let movieDetails = document.querySelector('#movie-details');
             let movieTitle = document.createElement('p');
