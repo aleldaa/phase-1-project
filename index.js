@@ -10,7 +10,7 @@ let global
 const movieList = document.querySelector('#movie-list')
 
 const getMovies = (movies) => {
-    for(let i = 0; i <= 10; i++){
+    for(let i = 0; i < 9; i++){
         let movieCard = document.createElement('li')
         console.log(movieCard)
         let url = movies.items[i].image
@@ -19,5 +19,4 @@ const getMovies = (movies) => {
         movieCard.append(image)
         movieList.append(movieCard)
     }
-    
 }
