@@ -7,11 +7,12 @@
   "name": "phase-1-project",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend.js",
+  "type": "commonjs",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node backend.js"
 
   },
   "repository": {

@@ -5,33 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Filminator</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script defer src="index.js" type = "commonjs"></script>
   </head>
   <body>
     <main>
       <header>
-        <h1>The Filminator</h1> 
+        <h1 id="header">The Filminator</h1> 
       </header> 
-      <div>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <div id="movie-list-container">
+        <ul id="movie-list">
+          <li id="movie1"></li>
+          <li id="movie2"></li>
+          <li id="movie3"></li>
+          <li id="movie4"></li>
+          <li id="movie5"></li>
+          <li id="movie6"></li>
+          <li id="movie7"></li>
+          <li id="movie8"></li>
+          <li id="movie9"></li>
+        </ul>
       </div>
       <form>
         <label for="link">Image Link</label>
-        <input type="text" placeholder="link" name="link"/>
+        <input type="text" id="image-link" placeholder="link" name="link"/>
 
         <label for="title">Title</label>
-        <input type="text" placeholder="title" name="title"/>
+        <input type="text" id="title" placeholder="title" name="title"/>
 
         <label for="summary">Movie Summary</label>
-        <input type="text" placeholder="summary" name="summary"/>
+        <input type="text" id='summary' placeholder="summary" name="summary"/>
 
         <select name="rating" id="rating">
           <option value="">--Rate Movie--</option>
@@ -41,7 +45,7 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <button>Submit</button>
+        <button id="button">Submit</button>
       </form>
     </main>
     <script src="index.js"></script>
