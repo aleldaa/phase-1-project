@@ -1,32 +1,25 @@
-// import axios from 'axios'
-// import express from 'express'
-// require("dotenv").config()
-// const express = require('express');
-// const axios = require('axios')
-// const app = express()
-// const apiUrl = "https://imdb-api.com/en/API/Top250Movies/"
-// console.log(process.env.API_KEY)
-// app.get('/hello', (req,res)=> {
-//     res.send("Hello Api")
-// })
-// app.get('/data', async(req,res,next)=>{
-//     const options = {
-//         method: "GET",
-//         url: `${apiUrl + process.env.API_KEY}`,
-//         headers: {
-//          "Content-Type": "application/json",
-//         },
-//        }
-//     axios.request(options)
-//     .then((response) => {
-//         res.json(response.data)
-//     })
-// })
-// app.listen(3000, ()=> {
-//     console.log("started")
-// })
-
-fetch("http://localhost:3000/data")
+fetch("http://localhost:3000/items")
 .then(response=>response.json())
-.then(response=>console.log(response))
+.then(response=>{
+    console.log(response)
+    getMovies(response)
+})
 .catch(err => console.log(err))
+
+let global
+const movieList = document.querySelector('#movie-list-container')
+
+const getMovies = (movies) => {
+    // for(let i = 0; i < 9; i++){
+        movies.forEach(movie => {
+        let movieCard = document.createElement('li')
+        movieCard.classList.add('col-4')
+        let url = movie.image
+        let image = document.createElement('img')
+        image.src = url
+        movieCard.append(image)
+        movieList.append(movieCard)
+        });
+        
+    // }
+}

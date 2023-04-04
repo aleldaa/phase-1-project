@@ -1,3 +1,28 @@
 body{
     text-align: center;
 }
+
+#movie-list{
+    list-style-type: none;
+}
+
+#button {
+    display: block;
+    margin-top: 10px;
+}
+
+img{
+    margin-bottom: 1rem;
+    max-width: 200px;
+    height: auto;
+
+}
+
+form{
+    text-align: left;
+}
+
+form input{
+    display: block;
+    margin-bottom: 10px
+}
