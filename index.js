@@ -1,12 +1,23 @@
 fetch("http://localhost:3000/data")
 .then(response=>response.json())
-.then(response=>console.log(response))
+.then(response=>{
+    console.log(response)
+    getMovies(response)
+})
 .catch(err => console.log(err))
-.then(data => getMovies(data))
 
 let global
-const movie1 = document.querySelector('#movie1')
+const movieList = document.querySelector('#movie-list')
 
 const getMovies = (movies) => {
-    movies.forEach(content =>)
+    for(let i = 0; i <= 10; i++){
+        let movieCard = document.createElement('li')
+        console.log(movieCard)
+        let url = movies.items[i].image
+        let image = document.createElement('img')
+        image.src = url
+        movieCard.append(image)
+        movieList.append(movieCard)
+    }
+    
 }
