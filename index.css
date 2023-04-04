@@ -1,3 +1,19 @@
 body{
     text-align: center;
 }
+
+#movie-list-container{
+    display: flex;   
+} 
+
+#movie-list{
+    list-style-type: none;
+}
+
+#movie-list li{
+    display: inline-block;
+}
+
+img {
+    max-width: 300px;
+}
