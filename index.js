@@ -44,7 +44,7 @@ function showMovieDetails(movie) {
     movieStats.classList.add('col-6');
     upVote.innerHTML = `<i class="fa-solid fa-angles-up"></i>    `
     downVote.innerHTML = `    <i class="fa-solid fa-angles-down"></i>`
-    totalCount.textContent = i
+    totalCount.textContent = movie.voteRating
     rateContainer.textContent = `Filminator Rating: `
     rateContainer.append(upVote, totalCount, downVote)
   
@@ -72,6 +72,16 @@ function showMovieDetails(movie) {
     movieImage.addEventListener('click', () => {
         movieStats.innerHTML = '';
         movieDetails.removeChild(movieImage);
+    })
+
+    fetch(`http://localhost:3000/items/${id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': "application/json"
+      },
+      body: JSON.stringify({
+        'voteRating': i
+      })
     })
 
 }
