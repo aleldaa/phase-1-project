@@ -28,6 +28,7 @@ const getMovies = (movies) => {
              })
         movieCard.addEventListener('click', () => {
             let movieDetails = document.querySelector('#movie-details');
+            let movieStats = document.querySelector('#movie-stats');
             let movieTitle = document.createElement('p');
             let releaseYear = document.createElement('p');
             let movieCast = document.createElement('p');
@@ -39,10 +40,12 @@ const getMovies = (movies) => {
             releaseYear.textContent = movie.year;
             movieCast.textContent = `Main Cast: ${movie.crew}`;
             movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
+            movieStats.classList.add('col-6')
             while(movieDetails.firstChild){
                 movieDetails.removeChild(movieDetails.lastChild);
             }
-            movieDetails.append(movieImage, movieTitle, releaseYear, movieCast, movieRating);
+            movieStats.append(movieTitle, releaseYear, movieCast, movieRating);
+            movieDetails.append(movieImage, movieStats);
 
         })
     });
