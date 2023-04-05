@@ -74,5 +74,14 @@ submitForm.addEventListener('submit', (e)=>{
             "imDbRating": e.target.rating.value
     }
     movieBox(newMovie)
+    
+    fetch("http://localhost:3000/items", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    })
     e.target.reset()
+    
 })
