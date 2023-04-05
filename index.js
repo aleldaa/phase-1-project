@@ -49,12 +49,16 @@ const movieBox = (movie) => {
     releaseYear.textContent = movie.year;
     movieCast.textContent = `Main Cast: ${movie.crew}`;
     movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
-            movieStats.classList.add('col-6')
+    movieStats.classList.add('col-6');
+   
     while(movieDetails.firstChild){
-    movieDetails.removeChild(movieDetails.lastChild);
+        movieDetails.removeChild(movieDetails.lastChild);
     }
+    while(movieStats.firstChild){
+        movieStats.removeChild(movieStats.lastChild);
+        }
     movieStats.append(movieTitle, releaseYear, movieCast, movieRating);
-            movieDetails.append(movieImage, movieStats);
+    movieDetails.append(movieImage, movieStats);
     })
 }
 
