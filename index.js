@@ -6,48 +6,69 @@ fetch("http://localhost:3000/items")
 })
 .catch(err => console.log(err))
 
-let global
 const movieList = document.querySelector('#movie-list-container')
+const submitForm = document.querySelector('.col-3')
+const imageLink =document.querySelector('#image-link')
+const yearInput = document.querySelector('#year')
+const castInput = document.querySelector('#cast')
+const rating = document.querySelector('#rating')
+const button = document.querySelector('#button')
 
 const getMovies = (movies) => {
-    // for(let i = 0; i < 9; i++){
         movies.forEach(movie => {
-        let movieCard = document.createElement('li')
-        movieCard.classList.add('col-4')
-        let url = movie.image
-        let image = document.createElement('img')
-        image.src = url
-        movieCard.append(image)
-        movieList.append(movieCard)
-        
-        movieCard.addEventListener('mouseover', () => {
-                movieCard.style.transform = "scale(1.5)";
-             });
-        movieCard.addEventListener( 'mouseout', () => {
-                movieCard.style.transform = "scale(1)";
-             })
-        movieCard.addEventListener('click', () => {
-            let movieDetails = document.querySelector('#movie-details');
-            let movieStats = document.querySelector('#movie-stats');
-            let movieTitle = document.createElement('p');
-            let releaseYear = document.createElement('p');
-            let movieCast = document.createElement('p');
-            let movieRating = document.createElement('p');
-            let movieImage = document.createElement('img');
-            
-            movieImage.src = movie.image
-            movieTitle.textContent = movie.title;
-            releaseYear.textContent = movie.year;
-            movieCast.textContent = `Main Cast: ${movie.crew}`;
-            movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
-            movieStats.classList.add('col-6')
-            while(movieDetails.firstChild){
-                movieDetails.removeChild(movieDetails.lastChild);
-            }
-            movieStats.append(movieTitle, releaseYear, movieCast, movieRating);
-            movieDetails.append(movieImage, movieStats);
-
-        })
+        movieBox(movie)
     });
 }
 
+const movieBox = (movie) => {
+    let movieCard = document.createElement('li')
+    movieCard.classList.add('col-4')
+    let url = movie.image
+    let image = document.createElement('img')
+    image.src = url
+    movieCard.append(image)
+    movieList.append(movieCard)
+
+    movieCard.addEventListener('mouseover', () => {
+    movieCard.style.transform = "scale(1.5)";
+    });
+    movieCard.addEventListener( 'mouseout', () => {
+    movieCard.style.transform = "scale(1)";
+    })
+    movieCard.addEventListener('click', () => {
+    let movieDetails = document.querySelector('#movie-details');
+            let movieStats = document.querySelector('#movie-stats');
+    let movieTitle = document.createElement('p');
+    let releaseYear = document.createElement('p');
+    let movieCast = document.createElement('p');
+    let movieRating = document.createElement('p');
+    let movieImage = document.createElement('img');
+
+    movieImage.src = movie.image
+    movieTitle.textContent = movie.title;
+    releaseYear.textContent = movie.year;
+    movieCast.textContent = `Main Cast: ${movie.crew}`;
+    movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
+            movieStats.classList.add('col-6')
+    while(movieDetails.firstChild){
+    movieDetails.removeChild(movieDetails.lastChild);
+    }
+    movieStats.append(movieTitle, releaseYear, movieCast, movieRating);
+            movieDetails.append(movieImage, movieStats);
+    })
+}
+
+submitForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    const newImage = document.createElement('img')
+
+    let newMovie = {
+            "title": e.target.title.value,
+            "year":  e.target.year.value,
+            "image": e.target['image-link'].value,
+            "crew": e.target.cast.value,
+            "imDbRating": e.target.rating.value
+    }
+    movieBox(newMovie)
+    e.target.reset()
+})
