@@ -14,6 +14,7 @@ const castInput = document.querySelector('#cast')
 const rating = document.querySelector('#rating')
 const button = document.querySelector('#button')
 
+
 const getMovies = (movies) => {
         movies.forEach(movie => {
         movieBox(movie)
@@ -28,6 +29,12 @@ function showMovieDetails(movie) {
     let movieCast = document.createElement('p');
     let movieRating = document.createElement('p');
     let movieImage = document.createElement('img');
+    let rateContainer = document.createElement('p');
+    let upVote = document.createElement('span')
+    let downVote = document.createElement('span')
+    let totalCount = document.createElement('span')
+    let i = 0
+ 
 
     movieImage.src = movie.image
     movieTitle.textContent = movie.title;
@@ -35,6 +42,12 @@ function showMovieDetails(movie) {
     movieCast.textContent = `Main Cast: ${movie.crew}`;
     movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
     movieStats.classList.add('col-6');
+    upVote.innerHTML = `<i class="fa-solid fa-angles-up"></i>    `
+    downVote.innerHTML = `    <i class="fa-solid fa-angles-down"></i>`
+    totalCount.textContent = i
+    rateContainer.textContent = `Filminator Rating: `
+    rateContainer.append(upVote, totalCount, downVote)
+  
 
     while(movieDetails.firstChild){
         movieDetails.removeChild(movieDetails.lastChild);
@@ -42,13 +55,28 @@ function showMovieDetails(movie) {
     while(movieStats.firstChild){
      movieStats.removeChild(movieStats.lastChild);
     }
-    movieStats.append(movieTitle, releaseYear, movieCast, movieRating);
+  
+    movieStats.append(movieTitle, releaseYear, movieCast, movieRating, rateContainer);
     movieDetails.append(movieImage, movieStats);
+
+    upVote.addEventListener('click', () => {
+        i++
+        totalCount.textContent = i
+        
+     });
+     downVote.addEventListener('click', () => {
+        i--;
+        totalCount.textContent = i
+    }); 
+
     movieImage.addEventListener('click', () => {
         movieStats.innerHTML = '';
         movieDetails.removeChild(movieImage);
     })
+
 }
+
+
 const movieBox = (movie) => {
     let movieCard = document.createElement('li')
     movieCard.classList.add('col-4')
@@ -65,6 +93,7 @@ const movieBox = (movie) => {
     movieCard.style.transform = "scale(1)";
     })
     movieCard.addEventListener('click', () => showMovieDetails(movie));
+
 }
 
 submitForm.addEventListener('submit', (e)=>{
