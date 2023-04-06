@@ -1,3 +1,5 @@
+// const e = require("express")
+
 fetch("http://localhost:3000/items")
 .then(response=>response.json())
 .then(response=>{
@@ -5,6 +7,26 @@ fetch("http://localhost:3000/items")
     getMovies(response)
 })
 .catch(err => console.log(err))
+
+const toggler = document.querySelector('#toggle-label')
+const body = document.querySelector('body')
+let movieDetails = document.querySelector('#movie-details');
+
+
+toggler.addEventListener('click', (e) => {
+
+    console.log(e.target.checked)
+    if(e.target.checked){
+        body.classList.toggle('light-mode')
+        movieDetails.classList.toggle('light-mode')
+        movieDetails.style.backgroundColor = '#FFF'
+    }
+    else{
+        body.classList.remove('light-mode')
+        movieDetails.classList.remove('light-mode')
+        movieDetails.style.backgroundColor = '#777777'
+    }
+})
 
 const movieList = document.querySelector('#movie-list-container')
 const submitForm = document.querySelector('.col-3')
@@ -22,7 +44,6 @@ const getMovies = (movies) => {
 }
 
 function showMovieDetails(movie) {
-    let movieDetails = document.querySelector('#movie-details');
     let movieStats = document.querySelector('#movie-stats');
     let movieTitle = document.createElement('p');
     let releaseYear = document.createElement('p');
@@ -33,12 +54,13 @@ function showMovieDetails(movie) {
     let upVote = document.createElement('span')
     let downVote = document.createElement('span')
     let totalCount = document.createElement('span')
+    let featureHeader = document.createElement('h2')
     let i = 0
  
 
     movieImage.src = movie.image
     movieTitle.textContent = movie.title;
-    releaseYear.textContent = movie.year;
+    releaseYear.textContent = `Year Released: ${movie.year}`;
     movieCast.textContent = `Main Cast: ${movie.crew}`;
     movieRating.textContent = `imDb Rating: ${movie.imDbRating}`;
     movieStats.classList.add('col-6');
@@ -46,6 +68,7 @@ function showMovieDetails(movie) {
     downVote.innerHTML = `    <i class="fa-solid fa-angles-down"></i>`
     totalCount.textContent = movie.voteRating
     rateContainer.textContent = `Filminator Rating: `
+    featureHeader.textContent = 'Now Featuring'
     rateContainer.append(upVote, totalCount, downVote)
   
 
@@ -57,7 +80,7 @@ function showMovieDetails(movie) {
     }
   
     movieStats.append(movieTitle, releaseYear, movieCast, movieRating, rateContainer);
-    movieDetails.append(movieImage, movieStats);
+    movieDetails.append(featureHeader, movieImage, movieStats);
 
     upVote.addEventListener('click', () => {
         i++
@@ -71,6 +94,7 @@ function showMovieDetails(movie) {
 
     movieImage.addEventListener('click', () => {
         movieStats.innerHTML = '';
+        movieDetails.removeChild(featureHeader);
         movieDetails.removeChild(movieImage);
     })
 
@@ -97,10 +121,12 @@ const movieBox = (movie) => {
     movieList.append(movieCard)
 
     movieCard.addEventListener('mouseover', () => {
-    movieCard.style.transform = "scale(1.5)";
+    movieCard.style.transform = "scale(1.1)";
+    movieCard.style.transition = "ease-in-out 0.5s";
     });
     movieCard.addEventListener( 'mouseout', () => {
     movieCard.style.transform = "scale(1)";
+    movieCard.style.transition = "ease-in-out 0.5s";
     })
     movieCard.addEventListener('click', () => showMovieDetails(movie));
 

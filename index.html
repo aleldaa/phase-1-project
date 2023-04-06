@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4c952aa83b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./index.css">
     <title>The Filminator</title>
@@ -16,7 +16,12 @@
     <main class="container-fluid">
       <header class="row">
         <h1 id="header" class="col">The Filminator</h1> 
-      </header> 
+        <div class = 'toggle-container'>
+          <label id="toggle-label">
+              <input id='toggle-switch' type = 'checkbox'>
+              <span class = 'slider'></span>
+          </label>
+      </header>
       <div id="movie-details" class="row">
         <div id="movie-stats" class="col-6"></div>
       </div>
