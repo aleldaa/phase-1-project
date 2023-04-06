@@ -58,15 +58,33 @@ function showMovieDetails(movie) {
   
     movieStats.append(movieTitle, releaseYear, movieCast, movieRating, rateContainer);
     movieDetails.append(movieImage, movieStats);
-
+    console.log(movie)
     upVote.addEventListener('click', () => {
         i++
         totalCount.textContent = i
+        fetch(`http://localhost:3000/items/${movie.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                'voteRating': i
+            })
+         })
         
      });
      downVote.addEventListener('click', () => {
         i--;
         totalCount.textContent = i
+        fetch(`http://localhost:3000/items/${movie.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                'voteRating': i
+            })
+        })
     }); 
 
     movieImage.addEventListener('click', () => {
@@ -74,15 +92,7 @@ function showMovieDetails(movie) {
         movieDetails.removeChild(movieImage);
     })
 
-    fetch(`http://localhost:3000/items/${id}`, {
-      method: "PATCH",
-      headers: {
-        'Content-Type': "application/json"
-      },
-      body: JSON.stringify({
-        'voteRating': i
-      })
-    })
+    
 
 }
 
@@ -108,14 +118,14 @@ const movieBox = (movie) => {
 
 submitForm.addEventListener('submit', (e)=>{
     e.preventDefault()
-    const newImage = document.createElement('img')
 
     let newMovie = {
             "title": e.target.title.value,
             "year":  e.target.year.value,
             "image": e.target['image-link'].value,
             "crew": e.target.cast.value,
-            "imDbRating": e.target.rating.value
+            "imDbRating": e.target.rating.value,
+            "voteRating": 0
     }
     movieBox(newMovie)
     
