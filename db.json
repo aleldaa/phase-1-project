@@ -10,7 +10,7 @@
       "crew": "Frank Darabont (dir.), Tim Robbins, Morgan Freeman",
       "imDbRating": "9.2",
       "imDbRatingCount": "2722548",
-      "voteRating": "0"
+      "voteRating": 1
     },
     {
       "id": "tt0068646",
@@ -82,7 +82,7 @@
       "crew": "Peter Jackson (dir.), Elijah Wood, Viggo Mortensen",
       "imDbRating": "8.9",
       "imDbRatingCount": "1873185",
-      "voteRating": "0"
+      "voteRating": 4
     },
     {
       "id": "tt0110912",
@@ -106,7 +106,7 @@
       "crew": "Peter Jackson (dir.), Elijah Wood, Ian McKellen",
       "imDbRating": "8.8",
       "imDbRatingCount": "1902365",
-      "voteRating": "0"
+      "voteRating": 13
     },
     {
       "title": "The Matrix",
@@ -114,7 +114,26 @@
       "image": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
       "crew": "Keanu Reaves",
       "imDbRating": "9",
-      "id": "eAy7FHE"
+      "id": "eAy7FHE",
+      "voteRating": 2
+    },
+    {
+      "title": "Star Trek",
+      "year": "2009",
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRD5IkzsfT09vti0Y_UfJ9-xPSRLPIA4yMFj2WA6EuaDCDdT51P",
+      "crew": "Chris Pine, Zachary Quinto",
+      "imDbRating": "8",
+      "id": "Yn91m98",
+      "voteRating": 2
+    },
+    {
+      "title": "Bride of Frankenstein",
+      "year": "1935",
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRCeLPxl-xcLKLD9gBVEAvc7Uv4-tnTTpQEj4wYsvmED45hJbwV",
+      "crew": "Boris Karloff, Elsa Lanchester",
+      "imDbRating": "7",
+      "voteRating": 0,
+      "id": "ZhnAtaz"
     }
   ]
 }
