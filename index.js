@@ -8,6 +8,13 @@ fetch("http://localhost:3000/items")
 })
 .catch(err => console.log(err))
 
+const movieList = document.querySelector('#movie-list-container')
+const submitForm = document.querySelector('.col-3')
+const imageLink =document.querySelector('#image-link')
+const yearInput = document.querySelector('#year')
+const castInput = document.querySelector('#cast')
+const rating = document.querySelector('#rating')
+const button = document.querySelector('#button')
 const toggler = document.querySelector('#toggle-label')
 const body = document.querySelector('body')
 let movieDetails = document.querySelector('#movie-details');
@@ -28,22 +35,13 @@ toggler.addEventListener('click', (e) => {
     }
 })
 
-const movieList = document.querySelector('#movie-list-container')
-const submitForm = document.querySelector('.col-3')
-const imageLink =document.querySelector('#image-link')
-const yearInput = document.querySelector('#year')
-const castInput = document.querySelector('#cast')
-const rating = document.querySelector('#rating')
-const button = document.querySelector('#button')
-
-
 const getMovies = (movies) => {
         movies.forEach(movie => {
         movieBox(movie)
     });
 }
 
-function showMovieDetails(movie) {
+const showMovieDetails = (movie) => {
     let movieStats = document.querySelector('#movie-stats');
     let movieTitle = document.createElement('p');
     let releaseYear = document.createElement('p');
