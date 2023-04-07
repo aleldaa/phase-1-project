@@ -21,6 +21,8 @@ By Sterling Barton, Luna Daniels and Angela Palaszewski
 - Click on movie to display
 - Click on poster to remove display
 - Add movie using form submit
+- PATCH changes of upvote or downvote
+- POST changes of new movie
 
 ### Resources
 imDb API - https://imdb-api.com/en/API/Top250Movies/
