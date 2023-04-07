@@ -55,7 +55,6 @@ const showMovieDetails = (movie) => {
     let featureHeader = document.createElement('h2')
     let i = 0
  
-
     movieImage.src = movie.image
     movieTitle.textContent = movie.title;
     releaseYear.textContent = `Year Released: ${movie.year}`;
@@ -69,7 +68,6 @@ const showMovieDetails = (movie) => {
     featureHeader.textContent = 'Now Featuring'
     rateContainer.append(upVote, totalCount, downVote)
   
-
     while(movieDetails.firstChild){
         movieDetails.removeChild(movieDetails.lastChild);
     }
@@ -113,11 +111,7 @@ const showMovieDetails = (movie) => {
         movieDetails.removeChild(featureHeader);
         movieDetails.removeChild(movieImage);
     })
-
-    
-
 }
-
 
 const movieBox = (movie) => {
     let movieCard = document.createElement('li')
@@ -137,7 +131,6 @@ const movieBox = (movie) => {
     movieCard.style.transition = "ease-in-out 0.5s";
     })
     movieCard.addEventListener('click', () => showMovieDetails(movie));
-
 }
 
 submitForm.addEventListener('submit', (e)=>{
