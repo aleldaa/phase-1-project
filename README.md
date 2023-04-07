@@ -5,7 +5,7 @@ By Sterling Barton, Luna Daniels and Angela Palaszewski
 ## The Filminator
 
 ### Page Layout
-- View list of the top 9 movies
+- View list of movies
 - Click on a movie to get the movies details
   - Movie poster
   - Movie title
